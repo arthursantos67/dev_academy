@@ -1,0 +1,30 @@
+# Ambientes virtuais
+venv/
+.venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Django
+*.log
+db.sqlite3
+staticfiles/
+media/
+
+# Editor
+.vscode/
+
+# Sistema
+.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# Ambiente
+.env
+
+# Docker
+.dockerignore
