@@ -1,25 +1,23 @@
+# Cache do Python
 __pycache__/
-*.py[cod]
-*$py.class
+*.pyc
 
-.env
-.venv/
+# Ambiente virtual
 venv/
+.venv/
 env/
-ENV/
 
+# Ambiente
+.env
+
+# Django
 *.log
 db.sqlite3
 media/
 staticfiles/
-static/
 
+# Editor
 .vscode/
-.idea/
-*.swp
 
-postgres_data/
+# Sistema
 .DS_Store
-Thumbs.db
-
-.cache/
