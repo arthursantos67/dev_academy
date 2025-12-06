@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=academy_db
+      - POSTGRES_USER=academy_user
+      - POSTGRES_PASSWORD=academy_pass
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    volumes:
+      - ./src:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_NAME=academy_db
+      - DATABASE_USER=academy_user
+      - DATABASE_PASSWORD=academy_pass
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DEBUG=1
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
