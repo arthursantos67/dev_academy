@@ -1,0 +1,70 @@
+{% extends 'academy/base.html' %}
+
+{% block content %}
+<h1 class="mb-4">Histórico do Aluno</h1>
+
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+        <h4 class="card-title mb-1">{{ student.full_name }}</h4>
+        <p class="mb-1">
+            <strong>E-mail:</strong> {{ student.email }}<br>
+            <strong>CPF:</strong> {{ student.cpf }}<br>
+            <strong>Data de Ingresso:</strong> {{ student.enrollment_date }}
+        </p>
+        <hr>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h5 class="text-primary mb-0">{{ total_enrollments }}</h5>
+                <small>Matrículas</small>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-success mb-0">R$ {{ total_paid }}</h5>
+                <small>Total Pago</small>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-danger mb-0">R$ {{ total_due }}</h5>
+                <small>Total Devido</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Matrículas</h3>
+
+<table class="table table-striped table-hover shadow-sm bg-white">
+    <thead class="table-dark">
+        <tr>
+            <th>Curso</th>
+            <th>Status</th>
+            <th>Data da Matrícula</th>
+            <th class="text-end">Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for enrollment in enrollments %}
+        <tr>
+            <td>{{ enrollment.course.name }}</td>
+            <td>
+                {% if enrollment.status == 'paid' %}
+                    <span class="badge bg-success">Pago</span>
+                {% else %}
+                    <span class="badge bg-warning text-dark">Pendente</span>
+                {% endif %}
+            </td>
+            <td>{{ enrollment.enrolled_at }}</td>
+            <td class="text-end">
+                R$ {{ enrollment.course.enrollment_fee }}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4" class="text-center">
+                Nenhuma matrícula encontrada para este aluno.
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'dashboard' %}" class="btn btn-secondary mt-3">Voltar ao Dashboard</a>
+{% endblock %}

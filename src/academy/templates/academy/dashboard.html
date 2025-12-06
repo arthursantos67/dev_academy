@@ -1,0 +1,52 @@
+{% extends 'academy/base.html' %}
+
+{% block content %}
+<h1 class="mb-4">Dashboard Geral</h1>
+
+<div class="row text-center">
+    <div class="col-md-3">
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h5 class="card-title text-primary">{{ total_students }}</h5>
+                <p class="card-text">Total de Alunos</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h5 class="card-title text-success">{{ active_courses }} / {{ total_courses }}</h5>
+                <p class="card-text">Cursos Ativos / Total</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h5 class="card-title text-success">{{ enrollments_paid }}</h5>
+                <p class="card-text">Matrículas Pagas</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h5 class="card-title text-warning">{{ enrollments_pending }}</h5>
+                <p class="card-text">Matrículas Pendentes</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <h3>Ações Rápidas</h3>
+        <div class="list-group">
+            <a href="/admin/academy/student/add/" class="list-group-item list-group-item-action">Novo Aluno</a>
+            <a href="/admin/academy/enrollment/add/" class="list-group-item list-group-item-action">Nova Matrícula</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
