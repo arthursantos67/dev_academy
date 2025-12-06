@@ -9,7 +9,6 @@ class TimestampedModel(models.Model):
     class Meta:
         abstract = True
 
-
 class Student(TimestampedModel):
     full_name = models.CharField(max_length=255, verbose_name="Nome Completo")
     email = models.EmailField(unique=True, verbose_name="E-mail")
