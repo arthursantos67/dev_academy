@@ -39,8 +39,8 @@ O container `web` irá automaticamente:
 | Serviço | URL |
 |---------|-----|
 | 🏠 Dashboard | http://localhost:8000 |
-| 📊 Relatório SQL | http://localhost:8000/reports/sql/ |
-| 👤 Histórico do Aluno | http://localhost:8000/students/`<id>`/history/ |
+| 📊 Relatório SQL | http://localhost:8000/relatorios/financeiro/ |
+| 👤 Histórico do Aluno | http://localhost:8000/alunos/1/historico/ |
 | 🔌 API | http://localhost:8000/api/ |
 | ⚙️ Admin | http://localhost:8000/admin/ |
 
@@ -125,7 +125,7 @@ curl -X POST http://localhost:8000/api/enrollments/1/mark_as_paid/
 
 Abra no navegador:
 ```
-http://localhost:8000/reports/sql/
+http://localhost:8000/relatorios/financeiro/
 ```
 
 Você verá o relatório financeiro com os totais pagos e devidos por aluno.
@@ -133,7 +133,7 @@ Você verá o relatório financeiro com os totais pagos e devidos por aluno.
 ### 8️⃣ Visualizar Histórico do Aluno
 
 ```
-http://localhost:8000/students/1/history/
+http://localhost:8000/alunos/1/historico/
 ```
 
 > Substitua `1` pelo ID do aluno que deseja visualizar.
